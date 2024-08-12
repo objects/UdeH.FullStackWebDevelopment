@@ -1,33 +1,92 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+/* Componente Header de Ejercicio 1.1 */
+const Header = (props) => {
+  return (
+    <>
+      <h1>{props.curso}</h1>
+    </>
+  )
+}
 
-function App() {
-  const [count, setCount] = useState(0)
+/* Componente Content de Ejercicio 1.1
+const Content = (props) => {
+  return (
+    <>  
+      <p>  
+        {props.parte1} {props.ex1}
+      </p>
+      <p>
+        {props.parte2} {props.ex2}
+      </p>
+      <p>
+        {props.parte3} {props.ex3}
+      </p>
+      <br></br>
+    </>
+  )
+}
+*/
+
+/* Componente Content de Ejercicio 1.2 */
+const Content = (props) => {
+  return(
+    <>
+      <Parte parte={props.parte1} ex={props.ex1} />
+      <Parte parte={props.parte2} ex={props.ex2} />
+      <Parte parte={props.parte3} ex={props.ex3} />
+      <br></br>
+    </>
+  )
+}
+
+/* Componente Parte de Ejercicio 1.2 */
+const Parte = (props) => {
+  return (
+    <>
+      <p>
+        {props.parte} {props.ex}
+      </p>
+    </>
+  )
+}
+
+/* Componente Total de Ejercicio 1.1 */
+const Total = (props) => {
+  return (
+    <>
+      <p>
+        Number of exercises {props.ex1 + props.ex2 + props.ex3} 
+      </p>
+    </>
+  )
+}
+
+/* Componente App de Ejercicio 1.1 */
+const App = () => {
+  const course = 'Half Stack application development'
+  const part1 = 'Fundamentals of React'
+  const exercises1 = 10
+  const part2 = 'Using props to pass data'
+  const exercises2 = 7
+  const part3 = 'State of a component'
+  const exercises3 = 14
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header curso={course} />
+
+      <Content 
+        parte1={part1} 
+        ex1={exercises1} 
+        parte2={part2}
+        ex2={exercises2}
+        parte3={part3}
+        ex3={exercises3} />
+
+      <Total 
+        ex1={exercises1} 
+        ex2={exercises2}
+        ex3={exercises3} />
+
     </>
   )
 }
