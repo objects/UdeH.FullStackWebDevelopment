@@ -40,7 +40,7 @@ const Content = (props) => {
   )
 }
 */
-/* Componente Content de Ejercicio 1.3 */
+/* Componente Content de Ejercicio 1.3
 const Content = ({part1, part2, part3}) => {
   console.log({part1, part2, part3})
   return(
@@ -48,6 +48,19 @@ const Content = ({part1, part2, part3}) => {
       <p>{part1.name} {part1.exercises}</p>
       <p>{part2.name} {part2.exercises}</p>
       <p>{part3.name} {part3.exercises}</p>
+      <br></br>
+    </>
+  )
+}
+*/
+/* Componente Content de Ejercicio 1.4 */
+const Content = ({parts}) => {
+  console.log({parts})
+  return(
+    <>
+      <p>{parts[0].name} {parts[0].exercises}</p>
+      <p>{parts[1].name} {parts[1].exercises}</p>
+      <p>{parts[2].name} {parts[2].exercises}</p>
       <br></br>
     </>
   )
@@ -77,7 +90,7 @@ const Total = (props) => {
   )
 }
 */
-/* Componente Total de Ejercicio 1.3 */
+/* Componente Total de Ejercicio 1.3
 const Total = ({part1, part2, part3}) => {
   console.log({part1, part2, part3})
   return (
@@ -88,6 +101,19 @@ const Total = ({part1, part2, part3}) => {
     </>
   )
 }
+*/
+/* Componente Total de Ejercicio 1.4 */
+const Total = ({parts}) => {
+  console.log({parts})
+  return (
+    <>
+      <p>
+        Number of exercises {parts[0].exercises + parts[1].exercises + parts[2].exercises} 
+      </p>
+    </>
+  )
+}
+
 /* Componente App de Ejercicio 1.1
 const App = () => {
   const course = 'Half Stack application development'
@@ -119,7 +145,7 @@ const App = () => {
   )
 }
 */
-/* Componente App de Ejercicio 1.3 */
+/* Componente App de Ejercicio 1.3 
 const App = () => {
   const course = 'Half Stack application development'
   const part1 = {
@@ -145,4 +171,34 @@ const App = () => {
     </div>
   )
 }
+*/
+/* Componente App de Ejercicio 1.4 */
+const App = () => {
+  const course = 'Half Stack application development'
+  const parts = [
+    {
+      name: 'Fundamentals of React',
+      exercises: 10
+    },
+    {
+      name: 'Using props to pass data',
+      exercises: 7
+    },
+    {
+      name: 'State of a component',
+      exercises: 14
+    }
+  ]
+
+  return (
+    <div>
+      <Header curso={course} />
+
+      <Content parts={parts} />
+
+      <Total parts={parts} />
+    </div>
+  )
+}
+
 export default App
